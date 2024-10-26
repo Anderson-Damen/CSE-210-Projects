@@ -1,22 +1,24 @@
-using System.Net.Mail;
-
+using System;
 public class Journal
 {
     public string _filename = "";
+    public string _newEntry = "";
     public List<string> entries = new List<string>();
+    
 
     public Journal(){}
     public void NewEntry()
     {
         Entry entry = new Entry();
-        entry.NewEntry();
+        _newEntry = entry.NewEntry(_newEntry);
+        entries.Add(_newEntry);
     }
     public void DisplayEntries()
     {
-        foreach (string entry in entries)
+        foreach (string ent in entries)
         {
-            Entry entry1 = new Entry();
-            entry1.DisplayEntry();
+            Entry entry = new Entry();
+            entry.DisplayEntry();
         }
     }
 

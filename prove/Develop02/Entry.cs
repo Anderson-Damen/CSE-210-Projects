@@ -5,7 +5,7 @@ public class Entry
     public string _date = "";
     public Entry()
     {}
-    public void NewEntry()
+    public string NewEntry(string entry)
     {
         _date = DateTime.Now.ToString("MM/dd/yyyy");
         RandomPromptGenerator prompt = new RandomPromptGenerator();
@@ -13,6 +13,8 @@ public class Entry
         Console.WriteLine(_randomPrompt);
         Console.Write("> ");
         _response = Console.ReadLine();
+        entry = _date + ";" + _randomPrompt + ";" + _response + ";";
+        return entry;
     }
     public void DisplayEntry()
     {

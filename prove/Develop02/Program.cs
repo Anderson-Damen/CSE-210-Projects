@@ -15,10 +15,10 @@ class Program
             Console.WriteLine("2. Display");
             Console.WriteLine("3. Load");
             Console.WriteLine("4. Save");
-            Console.Write("5. Quit");
-            
+            Console.WriteLine("5. Quit");
+            Console.Write("What would you like to do?");
             choice = Console.ReadLine();
-            Console.WriteLine("What would you like to do?");
+            
 
             //Write new entry
             if (choice == "1")
@@ -58,7 +58,7 @@ class Program
             {
                 break;
             }
-            
+
             else
             {
                 Console.WriteLine("Invalid choice. Please try again.");
