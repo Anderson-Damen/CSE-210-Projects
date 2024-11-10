@@ -6,6 +6,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Welcome to the Journal Program!");
+        Journal journal = new Journal();
 
         string choice = "";
         while (choice != "5")
@@ -23,14 +24,12 @@ class Program
             //Write new entry
             if (choice == "1")
             {
-                Journal journal = new Journal();
                 journal.NewEntry(); 
             }
 
             //Display entries
             else if (choice == "2")
             {
-                Journal journal = new Journal();
                 journal.DisplayEntries();
 
             }
@@ -40,7 +39,6 @@ class Program
             {
                 Console.WriteLine("What is the filename?");
                 string filename = Console.ReadLine();
-                Journal journal = new Journal();
                 journal.Load(filename);            
             }
 
@@ -49,7 +47,6 @@ class Program
             {
                 Console.WriteLine("What is the filename?");
                 string filename = Console.ReadLine();
-                Journal journal = new Journal();
                 journal.Save(filename);
             }
 

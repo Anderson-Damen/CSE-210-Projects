@@ -3,22 +3,21 @@ public class Journal
 {
     public string _filename = "";
     public string _newEntry = "";
-    public List<string> entries = new List<string>();
+    public List<Entry> entries = new List<Entry>();
     
 
     public Journal(){}
     public void NewEntry()
     {
         Entry entry = new Entry();
-        _newEntry = entry.NewEntry(_newEntry);
-        entries.Add(_newEntry);
+        entry.NewEntry();
+        entries.Add(entry);
     }
     public void DisplayEntries()
     {
-        foreach (string ent in entries)
+        foreach (Entry ent in entries)
         {
-            Entry entry = new Entry();
-            entry.DisplayEntry();
+            ent.DisplayEntry();
         }
     }
 
@@ -31,10 +30,13 @@ public class Journal
         foreach (string line in lines)
         {
             string[] parts = line.Split(";");
+            Entry LoadEntry = new Entry();
 
-            string date = parts[0];
-            string prompt = parts[1];
-            string response = parts[2];
+            LoadEntry._date = parts[0];
+            LoadEntry._randomPrompt = parts[1];
+            LoadEntry._response = parts[2];
+
+            entries.Add(LoadEntry);
         }
     }
 
@@ -43,9 +45,9 @@ public class Journal
     {
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            foreach (string entry in entries)
+            foreach (Entry entry in entries)
             {
-                outputFile.WriteLine(entry);
+                outputFile.WriteLine($"{entry._date}; {entry._randomPrompt}; {entry._response}");
             }
         }
     }
