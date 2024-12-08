@@ -1,3 +1,5 @@
+using System.Reflection;
+
 public class Reflection : Activity
 {
     private List<string> prompts = new List<string>
@@ -20,6 +22,15 @@ public class Reflection : Activity
         "How can you keep this experience in mind in the future?"
     };
 
+    public void RunReflection()
+    {
+        SetStartMessage("Welcome to the Reflecting Activity");
+        SetDescription("This activity will help you reflect on times in your life when you have shown strength and resiliance. This will help you Recognize the power you have and how you can use it in other aspects of your life.");
+        Console.Write("How long, in seconds, would you like for your session? ");
+        SetDuration(int.Parse(Console.ReadLine()));
+        int duration = GetDuration();
+        SetEndMessage("Well done!! \n \n You have completed another" + duration + "seconds of the Reflecting ACtivity.");
+    }
     public string RandomPrompt()
     {
         Random random = new Random();

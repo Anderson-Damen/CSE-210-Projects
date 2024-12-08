@@ -23,32 +23,7 @@ class Program
             if (choice == 1)
             {
                 Breathing breathing = new Breathing();
-                breathing.SetStartMessage("Welcome to the Breathing Activity");
-                Console.WriteLine(breathing.GetStartMessage());
-                Console.WriteLine("");
-                breathing.SetDescription("This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.");
-                Console.WriteLine(breathing.GetDescription());
-                Console.WriteLine("");
-                Console.Write("How long, in seconds, would you like for your session? ");
-                breathing.SetDuration(int.Parse(Console.ReadLine()));
-                int duration = breathing.GetDuration();
-                Console.WriteLine("Get Ready...");
-                breathing.Animation();
-                
-                DateTime startTime = DateTime.Now;
-                DateTime futureTime = startTime.AddSeconds(duration);
-
-                DateTime currentTime = DateTime.Now;
-
-                while (currentTime < futureTime)
-                {
-                    Console.Write("Breath in...");
-                    breathing.CountDown();
-                    Console.WriteLine("");
-                    Console.Write("Breath out...");
-                    breathing.CountDown();
-                }
-                breathing.SetEndMessage("Well done!! \n \n You have completed another" + duration + "seconds of the Breathing ACtivity.");
+                breathing.RunBreathing();
             }
             else if (choice == 2)
             {
@@ -62,13 +37,13 @@ class Program
             }
             else if (choice == 3)
             {
-                Reflection reflecting = new Reflection();
-                reflecting.SetStartMessage("Welcome to the Listing Activity");
-                reflecting.SetDescription("This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
+                Listing listing = new Listing();
+                listing.SetStartMessage("Welcome to the Listing Activity");
+                listing.SetDescription("This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
                 Console.Write("How long, in seconds, would you like for your session? ");
-                reflecting.SetDuration(int.Parse(Console.ReadLine()));
-                int duration = reflecting.GetDuration();
-                reflecting.SetEndMessage("Well done!! \n \n You have completed another" + duration + "seconds of the Listing ACtivity.");
+                listing.SetDuration(int.Parse(Console.ReadLine()));
+                int duration = listing.GetDuration();
+                listing.SetEndMessage("Well done!! \n \n You have completed another" + duration + "seconds of the Listing ACtivity.");
             }
             else if (choice == 4)
             {
